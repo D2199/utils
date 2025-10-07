@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fallback</title>
+</head>
+<div id="msg" style="display: flex;justify-content: center;align-items: center;font-size: larger;font-weight: 800;">
+</div>
+
+<body>
+    <script>
+        try {
+            const urlParams = new URLSearchParams(window.location.search)
+            console.log(urlParams.get("url"))
+            window.location.href = urlParams.get("url")
+            document.getElementById("msg").innerText = "Redirecting..."
+        }
+        catch (e) {
+            console.log(e)
+            document.getElementById("msg").innerText = "error on redirecting"
+        }
+    </script>
+</body>
+
+</html>
